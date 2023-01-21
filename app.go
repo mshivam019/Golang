@@ -181,7 +181,6 @@ func main() {
 		res := gin.H{
 			"message": word+s1,
 		}
-		maps.Clear(s)
 		c.JSON(http.StatusOK, res)
 	}
 	r.GET("/isogram", isogramc)
