@@ -3,7 +3,7 @@
 ## url: https://decisive-teressa-mshivam019.koyeb.app
 
 
-## Get all posts https://decisive-teressa-mshivam019.koyeb.app/post/post
+## Get all posts https://decisive-teressa-mshivam019.koyeb.app/post
 
 
 ## Delete post by id:-
