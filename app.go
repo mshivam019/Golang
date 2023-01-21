@@ -7,7 +7,6 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
-	"golang.org/x/exp/maps"
 
 )
 
@@ -42,10 +41,9 @@ func main() {
 	if port == "" {
 		port = "8000"
 	}
-	s := NewSet()
 	var s1 string
 	var flag int
-	flag = 0
+
 
 	// post := map[string]string{
 	// 	"rahul": "jkghvkjhf",
@@ -165,7 +163,8 @@ func main() {
 		c.JSON(http.StatusOK, res)
 	}
 	isogramc := func(c *gin.Context) {
-
+		s := NewSet()
+		flag=0
 		word := c.Query("word")
 
 		for _, character := range word {
