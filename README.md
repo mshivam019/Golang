@@ -1,37 +1,36 @@
 # Golang
 
-url: https://decisive-teressa-mshivam019.koyeb.app
+## url: https://decisive-teressa-mshivam019.koyeb.app
 
 
-##get all posts https://decisive-teressa-mshivam019.koyeb.app/post/post
+## Get all posts https://decisive-teressa-mshivam019.koyeb.app/post/post
 
 
-###delete post by id:-
-###url: https://decisive-teressa-mshivam019.koyeb.app/post?id=rahul (query)
-###url: https://decisive-teressa-mshivam019.koyeb.app/post/rahul (param)(not in use)
-##request method: delete
+## Delete post by id:-
+### url: https://decisive-teressa-mshivam019.koyeb.app/post?id=rahul (query)
+### request method: delete
 
 
-##Add post req method: POST
-###url: https://decisive-teressa-mshivam019.koyeb.app/post
-###payload json as
+## Add post req method: POST
+### url: https://decisive-teressa-mshivam019.koyeb.app/post
+### payload json as
  {
 	   "name":"shivam"
   }
 
 
-##Modify data to absent using req method: Patch 
-###url: https://decisive-teressa-mshivam019.koyeb.app/post?id=rahul
+## Modify data to absent using req method: Patch 
+### url: https://decisive-teressa-mshivam019.koyeb.app/post?id=rahul
 
 
-##get post by id:-
-###url: https://decisive-teressa-mshivam019.koyeb.app/postbyid?id=rahul
-###request method: get
+## Get post by id:-
+### url: https://decisive-teressa-mshivam019.koyeb.app/postbyid?id=rahul
+### request method: get
 
 
-##modify data value to anything req method: Put
-###url: https://decisive-teressa-mshivam019.koyeb.app/post?val=check
-###payload json as
+## Modify data value to anything req method: Put
+### url: https://decisive-teressa-mshivam019.koyeb.app/post?val=check
+### payload json as
  {
 	   "name":"shivam"
   }
