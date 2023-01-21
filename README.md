@@ -34,3 +34,7 @@
  {
 	   "name":"shivam"
   }
+
+
+##Check if a word is an isogram  
+###  https://decisive-teressa-mshivam019.koyeb.app/isogram?word=isograms

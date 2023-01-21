@@ -9,6 +9,28 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+
+var exists = struct{}{}
+
+type set struct {
+	m map[string]struct{}
+}
+
+func NewSet() *set {
+	s := &set{}
+	s.m = make(map[string]struct{})
+	return s
+}
+
+func (s *set) Add(value string) {
+	s.m[value] = exists
+}
+
+func (s *set) Contains(value string) bool {
+	_, c := s.m[value]
+	return c
+}
+
 type PostPayload struct {
 	Name string `json:"name"`
 }
@@ -18,6 +40,10 @@ func main() {
 	if port == "" {
 		port = "8000"
 	}
+	s := NewSet()
+	var s1 string
+	var flag int
+	flag = 0
 
 	// post := map[string]string{
 	// 	"rahul": "jkghvkjhf",
@@ -136,6 +162,27 @@ func main() {
 		}
 		c.JSON(http.StatusOK, res)
 	}
+	isogramc := func(c *gin.Context) {
+
+		word := c.Query("word")
+
+		for _, character := range word {
+			if s.Contains(string(character)) {
+				s1 = " is not an isogram"
+				flag = 1
+			} else {
+				s.Add(string(character))
+			}
+		}
+		if flag == 0 {
+			s1 = " is an isogram"
+		}
+		res := gin.H{
+			"message": word+s1,
+		}
+		c.JSON(http.StatusOK, res)
+	}
+	r.GET("/isogram", isogramc)
 	r.PUT("/post", updateValuebyId) //data will be sent via payload and query
 	r.GET("/postbyid", getPostById)
 	// listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
