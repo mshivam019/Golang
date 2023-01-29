@@ -36,5 +36,5 @@
   }
 
 
-##Check if a word is an isogram  
+## Check if a word is an isogram  
 ###  https://golang-production-54b0.up.railway.app/isogram?word=isograms
