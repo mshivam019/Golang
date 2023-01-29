@@ -2,39 +2,52 @@
 
 ## url: https://golang-production-54b0.up.railway.app
 
+## Signup url: https://golang-production-54b0.up.railway.app/signup
+### payload json as
+{
+  "Id":1,
+  "Name":"Shivam",
+  "username":"mshivam019",
+  "password":"password"
+}
+
+## Login url: https://golang-production-54b0.up.railway.app/login
+### payload json as
+{
+  "username":"mshivam019",
+  "password":"password"
+}
 
 ## Get all posts https://golang-production-54b0.up.railway.app/post
-
+# also add your jwt token as header
 
 ## Delete post by id:-
-### url: https://golang-production-54b0.up.railway.app/post?id=rahul (query)
+### url: https://golang-production-54b0.up.railway.app/post/1
 ### request method: delete
 
 
 ## Add post req method: POST
 ### url: https://golang-production-54b0.up.railway.app/post
+# also add your jwt token as header
 ### payload json as
- {
-	   "name":"shivam"
+ {  
+    "Id":1,
+	  "Name":"shivam",
+    "Body":"hello"
   }
 
 
-## Modify data to absent using req method: Patch 
-### url: https://golang-production-54b0.up.railway.app/post?id=rahul
-
 
 ## Get post by id:-
-### url: https://golang-production-54b0.up.railway.app/postbyid?id=rahul
+### url: https://golang-production-54b0.up.railway.app/post/3
 ### request method: get
 
 
 ## Modify data value to anything req method: Put
-### url: https://golang-production-54b0.up.railway.app/post?val=check
+### url: https://golang-production-54b0.up.railway.app/post
 ### payload json as
- {
-	   "name":"shivam"
+ {  
+    "Id":1,
+	  "Name":"shivam",
+    "Body":"hello"
   }
-
-
-## Check if a word is an isogram  
-###  https://golang-production-54b0.up.railway.app/isogram?word=isograms
