@@ -11,9 +11,17 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-//acting as db for as
+// acting as db for as
 var post = map[string]string{
 	"rahul": "Present",
+}
+
+func HelloWorld(c *gin.Context) {
+
+	res := gin.H{
+		"message": "Hello there!",
+	}
+	c.JSON(http.StatusOK, res)
 }
 
 func GetPost(c *gin.Context) {

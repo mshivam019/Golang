@@ -16,7 +16,7 @@ func AuthMiddleware() gin.HandlerFunc {
 
 	checksum := func(c *gin.Context) {
 		log.Println(c.Request.URL)
-		if c.Request.URL.String() == "/login" || c.Request.URL.String() == "/signup" {
+		if c.Request.URL.String() == "/login" || c.Request.URL.String() == "/signup" || c.Request.URL.String() == "/" {
 			c.Next()
 			return
 		}
