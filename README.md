@@ -42,7 +42,7 @@
 
 
 ## Modify data value to anything req method: Put
-### url: https://golang-production-54b0.up.railway.app/post
+### url: https://restless-snowflake-5074.fly.dev/post
 ### payload json as
  {  "Id":1,
     "Name":"shivam",
