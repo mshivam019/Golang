@@ -12,5 +12,4 @@ func UserRouter(engine *gin.Engine) {
     engine.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
     engine.POST("/signup", controller.SignUp)
     engine.POST("/login", controller.LogIn)
-    engine.POST("/logout", controller.LogOut)
 }
