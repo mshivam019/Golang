@@ -1,0 +1,210 @@
+definitions:
+  model.Post:
+    properties:
+      body:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  model.User:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      password:
+        type: string
+      username:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /:
+    get:
+      description: Get a greeting message from the server
+      operationId: get-greeting
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Greeting message
+          schema:
+            type: string
+      summary: Get a greeting message
+  /login:
+    post:
+      consumes:
+      - application/json
+      description: Log in a user and get an authentication token
+      parameters:
+      - description: User details
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/model.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Log in a user
+  /logout:
+    post:
+      description: Log out a user and invalidate the token
+      operationId: log-out
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: Log out a user
+  /posts:
+    get:
+      description: Get a list of all posts
+      operationId: get-all-posts
+      parameters:
+      - description: Authentication token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: List of posts
+          schema:
+            items:
+              $ref: '#/definitions/model.Post'
+            type: array
+      summary: Get all posts
+    post:
+      consumes:
+      - application/json
+      description: Create a new post with title and content
+      operationId: create-post
+      parameters:
+      - description: Authentication token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Post data
+        in: body
+        name: post
+        required: true
+        schema:
+          $ref: '#/definitions/model.Post'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Post created
+          schema:
+            type: string
+      summary: Create a new post
+    put:
+      consumes:
+      - application/json
+      description: Update a post by providing updated data
+      operationId: update-post
+      parameters:
+      - description: Updated post data
+        in: body
+        name: post
+        required: true
+        schema:
+          $ref: '#/definitions/model.Post'
+      - description: Authentication token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Post updated
+          schema:
+            type: string
+      summary: Update a post
+  /posts/{id}:
+    delete:
+      description: Delete a post by providing its ID
+      operationId: delete-post
+      parameters:
+      - description: Post ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Authentication token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Post deleted
+          schema:
+            type: string
+        "404":
+          description: Post not found
+          schema:
+            type: string
+      summary: Delete a post by ID
+    get:
+      description: Get a post by providing its ID
+      operationId: get-post-by-id
+      parameters:
+      - description: Post ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Authentication token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Post details
+          schema:
+            type: string
+      summary: Get a post by ID
+  /signup:
+    post:
+      consumes:
+      - application/json
+      description: Register a new user
+      parameters:
+      - description: User details
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/model.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.User'
+      summary: Sign up a new user
+swagger: "2.0"

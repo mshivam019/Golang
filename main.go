@@ -4,10 +4,11 @@ import (
 	"fmt"
 	"gin/basic/db"
 	"gin/basic/router"
-	"gin/basic/utils"
+	"gin/basic/utils" 
 	"log"
 	"net/http"
 	"os"
+	"strings"
 
 	"github.com/gin-gonic/gin"
 )
@@ -16,7 +17,7 @@ func AuthMiddleware() gin.HandlerFunc {
 
 	checksum := func(c *gin.Context) {
 		log.Println(c.Request.URL)
-		if c.Request.URL.String() == "/login" || c.Request.URL.String() == "/signup" || c.Request.URL.String() == "/" {
+		if c.Request.URL.String() == "/login" || c.Request.URL.String() == "/signup" || c.Request.URL.String() == "/" || strings.HasPrefix(c.Request.URL.Path, "/swagger")  {
 			c.Next()
 			return
 		}

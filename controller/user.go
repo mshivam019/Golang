@@ -9,7 +9,14 @@ import (
 
 	"github.com/gin-gonic/gin"
 )
-
+// @Summary Sign up a new user
+// @Description Register a new user
+// @ID sign-up
+// @Accept json
+// @Produce json
+// @Param user body model.User true "User details"
+// @Success 200 {object} model.User
+// @Router /signup [post]
 func SignUp(c *gin.Context) {
 	//parse user data from body
 	//call save user form dao
@@ -24,6 +31,14 @@ func SignUp(c *gin.Context) {
 	}
 	c.JSON(http.StatusOK, user)
 }
+// @Summary Log in a user
+// @Description Log in a user and get an authentication token
+// @ID log-in
+// @Accept json
+// @Produce json
+// @Param user body model.User true "User details"
+// @Success 200 {string} string
+// @Router /login [post]
 func LogIn(c *gin.Context) {
 	/*
 		1. parse user data from body
@@ -42,16 +57,34 @@ func LogIn(c *gin.Context) {
 	}
 	//now you verified alreday that user is g[d i.e, exist
 
-	token, err := utils.GenerateToekn(&user)
+	token, err := utils.GenerateToken(&user)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, err.Error())
 	}
 	c.JSON(http.StatusOK, token)
 
 }
+// @Summary Log out a user
+// @Description Log out a user and invalidate the token
+// @ID log-out
+// @Security ApiKeyAuth
+// @Produce json
+// @Success 200 {string} string
+// @Router /logout [post]
 func LogOut(c *gin.Context) {
+    // Extract the token from the Authorization header
+    authHeader := c.GetHeader("Authorization")
+    if authHeader == "" {
+        c.JSON(http.StatusBadRequest, "Authorization header missing")
+        return
+    }
 
-}
-func ForgetPassword(c *gin.Context) {
+    // Remove "Bearer " prefix from the token
+    userToken := authHeader[7:]
 
+    // Invalidate the token
+    utils.InvalidateToken(userToken)
+
+    c.JSON(http.StatusOK, "Logged out successfully")
 }
+

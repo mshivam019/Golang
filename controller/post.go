@@ -13,9 +13,14 @@ import (
 
 // acting as db for as
 var post = map[string]string{
-	"rahul": "Present",
+	"Shivam": "Present",
 }
-
+// @Summary Get a greeting message
+// @Description Get a greeting message from the server
+// @ID get-greeting
+// @Produce json
+// @Success 200 {string} string "Greeting message"
+// @Router / [get]
 func HelloWorld(c *gin.Context) {
 
 	res := gin.H{
@@ -23,7 +28,13 @@ func HelloWorld(c *gin.Context) {
 	}
 	c.JSON(http.StatusOK, res)
 }
-
+// @Summary Get all posts
+// @Description Get a list of all posts
+// @ID get-all-posts
+// @Param Authorization header string true "Authentication token"
+// @Produce json
+// @Success 200 {array} model.Post "List of posts"
+// @Router /posts [get]
 func GetPost(c *gin.Context) {
 
 	res := gin.H{
@@ -43,6 +54,15 @@ func GetPost(c *gin.Context) {
 		c.JSON(http.StatusOK, res)
 	}
 }
+// @Summary Delete a post by ID
+// @Description Delete a post by providing its ID
+// @ID delete-post
+// @Param id path string true "Post ID"
+// @Param Authorization header string true "Authentication token"
+// @Produce json
+// @Success 200 {string} string "Post deleted"
+// @Success 404 {string} string "Post not found"
+// @Router /posts/{id} [delete]
 func DeletePostByID(c *gin.Context) {
 
 	key := c.Params.ByName("id")
@@ -81,6 +101,15 @@ func DeletePostByID(c *gin.Context) {
 	//out=fmt.Sprint(`hey my name is %s. I am from %s`, "rahul", "here")
 }
 
+// @Summary Create a new post
+// @Description Create a new post with title and content
+// @ID create-post
+// @Accept json
+// @Produce json
+// @Param Authorization header string true "Authentication token"
+// @Param post body model.Post true "Post data"
+// @Success 200 {string} string "Post created"
+// @Router /posts [post]
 func CreatePost(c *gin.Context) {
 	//log.Println("*********", c, "*********")
 	var p1 model.Post
@@ -107,7 +136,14 @@ func CreatePost(c *gin.Context) {
 	}
 
 }
-
+// @Summary Get a post by ID
+// @Description Get a post by providing its ID
+// @ID get-post-by-id
+// @Param id path string true "Post ID"
+// @Param Authorization header string true "Authentication token"
+// @Produce json
+// @Success 200 {string} string "Post details"
+// @Router /posts/{id} [get]
 func GetPostById(c *gin.Context) {
 	key := c.Params.ByName("id")
 	res := gin.H{
@@ -127,7 +163,15 @@ func GetPostById(c *gin.Context) {
 		c.JSON(http.StatusOK, res)
 	}
 }
-
+// @Summary Update a post
+// @Description Update a post by providing updated data
+// @ID update-post
+// @Accept json
+// @Produce json
+// @Param post body model.Post true "Updated post data"
+// @Param Authorization header string true "Authentication token"
+// @Success 200 {string} string "Post updated"
+// @Router /posts [put]
 func UpdatePost(c *gin.Context) {
 
 	// key := c.Params.ByName("id")
