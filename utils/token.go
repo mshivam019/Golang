@@ -4,7 +4,6 @@ import (
 	"errors"
 	"gin/basic/model"
 	"log"
-	"sync"
 	"time"
 
 	"github.com/golang-jwt/jwt/v4"
