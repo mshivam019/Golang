@@ -34,7 +34,7 @@ func HelloWorld(c *gin.Context) {
 // @Param token header string true "token"
 // @Produce json
 // @Success 200 {array} model.Post "List of posts"
-// @Router /posts [get]
+// @Router /post [get]
 func GetPost(c *gin.Context) {
 
 	res := gin.H{
@@ -62,7 +62,7 @@ func GetPost(c *gin.Context) {
 // @Produce json
 // @Success 200 {string} string "Post deleted"
 // @Success 404 {string} string "Post not found"
-// @Router /posts/{id} [delete]
+// @Router /post/{id} [delete]
 func DeletePostByID(c *gin.Context) {
 
 	key := c.Params.ByName("id")
@@ -109,7 +109,7 @@ func DeletePostByID(c *gin.Context) {
 // @Param token header string true "token"
 // @Param post body model.Post true "Post data"
 // @Success 200 {string} string "Post created"
-// @Router /posts [post]
+// @Router /post [post]
 func CreatePost(c *gin.Context) {
 	//log.Println("*********", c, "*********")
 	var p1 model.Post
@@ -143,7 +143,7 @@ func CreatePost(c *gin.Context) {
 // @Param token header string true "token"
 // @Produce json
 // @Success 200 {string} string "Post details"
-// @Router /posts/{id} [get]
+// @Router /post/{id} [get]
 func GetPostById(c *gin.Context) {
 	key := c.Params.ByName("id")
 	res := gin.H{
@@ -171,7 +171,7 @@ func GetPostById(c *gin.Context) {
 // @Param post body model.Post true "Updated post data"
 // @Param token header string true "token"
 // @Success 200 {string} string "Post updated"
-// @Router /posts [put]
+// @Router /post [put]
 func UpdatePost(c *gin.Context) {
 
 	// key := c.Params.ByName("id")

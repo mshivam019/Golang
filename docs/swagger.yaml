@@ -55,7 +55,7 @@ paths:
           schema:
             type: string
       summary: Log in a user
-  /posts:
+  /post:
     get:
       description: Get a list of all posts
       operationId: get-all-posts
@@ -125,7 +125,7 @@ paths:
           schema:
             type: string
       summary: Update a post
-  /posts/{id}:
+  /post/{id}:
     delete:
       description: Delete a post by providing its ID
       operationId: delete-post

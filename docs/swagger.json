@@ -54,7 +54,7 @@
                 }
             }
         },
-        "/posts": {
+        "/post": {
             "get": {
                 "description": "Get a list of all posts",
                 "produces": [
@@ -158,7 +158,7 @@
                 }
             }
         },
-        "/posts/{id}": {
+        "/post/{id}": {
             "get": {
                 "description": "Get a post by providing its ID",
                 "produces": [

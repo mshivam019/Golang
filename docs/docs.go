@@ -66,7 +66,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/posts": {
+        "/post": {
             "get": {
                 "description": "Get a list of all posts",
                 "produces": [
@@ -170,7 +170,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/posts/{id}": {
+        "/post/{id}": {
             "get": {
                 "description": "Get a post by providing its ID",
                 "produces": [
