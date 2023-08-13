@@ -31,7 +31,7 @@ func HelloWorld(c *gin.Context) {
 // @Summary Get all posts
 // @Description Get a list of all posts
 // @ID get-all-posts
-// @Param Authorization header string true "Authentication token"
+// @Param Authorization header string true "token"
 // @Produce json
 // @Success 200 {array} model.Post "List of posts"
 // @Router /posts [get]
@@ -58,7 +58,7 @@ func GetPost(c *gin.Context) {
 // @Description Delete a post by providing its ID
 // @ID delete-post
 // @Param id path string true "Post ID"
-// @Param Authorization header string true "Authentication token"
+// @Param Authorization header string true "token"
 // @Produce json
 // @Success 200 {string} string "Post deleted"
 // @Success 404 {string} string "Post not found"
@@ -106,7 +106,7 @@ func DeletePostByID(c *gin.Context) {
 // @ID create-post
 // @Accept json
 // @Produce json
-// @Param Authorization header string true "Authentication token"
+// @Param Authorization header string true "token"
 // @Param post body model.Post true "Post data"
 // @Success 200 {string} string "Post created"
 // @Router /posts [post]
@@ -140,7 +140,7 @@ func CreatePost(c *gin.Context) {
 // @Description Get a post by providing its ID
 // @ID get-post-by-id
 // @Param id path string true "Post ID"
-// @Param Authorization header string true "Authentication token"
+// @Param Authorization header string true "token"
 // @Produce json
 // @Success 200 {string} string "Post details"
 // @Router /posts/{id} [get]
@@ -169,7 +169,7 @@ func GetPostById(c *gin.Context) {
 // @Accept json
 // @Produce json
 // @Param post body model.Post true "Updated post data"
-// @Param Authorization header string true "Authentication token"
+// @Param Authorization header string true "token"
 // @Success 200 {string} string "Post updated"
 // @Router /posts [put]
 func UpdatePost(c *gin.Context) {
