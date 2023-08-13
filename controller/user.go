@@ -64,27 +64,4 @@ func LogIn(c *gin.Context) {
 	c.JSON(http.StatusOK, token)
 
 }
-// @Summary Log out a user
-// @Description Log out a user and invalidate the token
-// @ID log-out
-// @Security ApiKeyAuth
-// @Produce json
-// @Success 200 {string} string
-// @Router /logout [post]
-func LogOut(c *gin.Context) {
-    // Extract the token from the Authorization header
-    authHeader := c.GetHeader("Authorization")
-    if authHeader == "" {
-        c.JSON(http.StatusBadRequest, "Authorization header missing")
-        return
-    }
-
-    // Remove "Bearer " prefix from the token
-    userToken := authHeader[7:]
-
-    // Invalidate the token
-    utils.InvalidateToken(userToken)
-
-    c.JSON(http.StatusOK, "Logged out successfully")
-}
 
