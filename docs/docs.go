@@ -44,6 +44,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "summary": "Log in a user",
+                "operationId": "log-in",
                 "parameters": [
                     {
                         "description": "User details",
@@ -65,29 +66,6 @@ const docTemplate = `{
                 }
             }
         },
-        "/logout": {
-            "post": {
-                "security": [
-                    {
-                        "ApiKeyAuth": []
-                    }
-                ],
-                "description": "Log out a user and invalidate the token",
-                "produces": [
-                    "application/json"
-                ],
-                "summary": "Log out a user",
-                "operationId": "log-out",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                }
-            }
-        },
         "/posts": {
             "get": {
                 "description": "Get a list of all posts",
@@ -99,8 +77,8 @@ const docTemplate = `{
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "Authentication token",
-                        "name": "Authorization",
+                        "description": "token",
+                        "name": "token",
                         "in": "header",
                         "required": true
                     }
@@ -139,8 +117,8 @@ const docTemplate = `{
                     },
                     {
                         "type": "string",
-                        "description": "Authentication token",
-                        "name": "Authorization",
+                        "description": "token",
+                        "name": "token",
                         "in": "header",
                         "required": true
                     }
@@ -167,8 +145,8 @@ const docTemplate = `{
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "Authentication token",
-                        "name": "Authorization",
+                        "description": "token",
+                        "name": "token",
                         "in": "header",
                         "required": true
                     },
@@ -210,8 +188,8 @@ const docTemplate = `{
                     },
                     {
                         "type": "string",
-                        "description": "Authentication token",
-                        "name": "Authorization",
+                        "description": "token",
+                        "name": "token",
                         "in": "header",
                         "required": true
                     }
@@ -242,8 +220,8 @@ const docTemplate = `{
                     },
                     {
                         "type": "string",
-                        "description": "Authentication token",
-                        "name": "Authorization",
+                        "description": "token",
+                        "name": "token",
                         "in": "header",
                         "required": true
                     }
@@ -274,6 +252,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "summary": "Sign up a new user",
+                "operationId": "sign-up",
                 "parameters": [
                     {
                         "description": "User details",

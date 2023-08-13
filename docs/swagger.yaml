@@ -39,6 +39,7 @@ paths:
       consumes:
       - application/json
       description: Log in a user and get an authentication token
+      operationId: log-in
       parameters:
       - description: User details
         in: body
@@ -54,28 +55,14 @@ paths:
           schema:
             type: string
       summary: Log in a user
-  /logout:
-    post:
-      description: Log out a user and invalidate the token
-      operationId: log-out
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            type: string
-      security:
-      - ApiKeyAuth: []
-      summary: Log out a user
   /posts:
     get:
       description: Get a list of all posts
       operationId: get-all-posts
       parameters:
-      - description: Authentication token
+      - description: token
         in: header
-        name: Authorization
+        name: token
         required: true
         type: string
       produces:
@@ -94,9 +81,9 @@ paths:
       description: Create a new post with title and content
       operationId: create-post
       parameters:
-      - description: Authentication token
+      - description: token
         in: header
-        name: Authorization
+        name: token
         required: true
         type: string
       - description: Post data
@@ -125,9 +112,9 @@ paths:
         required: true
         schema:
           $ref: '#/definitions/model.Post'
-      - description: Authentication token
+      - description: token
         in: header
-        name: Authorization
+        name: token
         required: true
         type: string
       produces:
@@ -148,9 +135,9 @@ paths:
         name: id
         required: true
         type: string
-      - description: Authentication token
+      - description: token
         in: header
-        name: Authorization
+        name: token
         required: true
         type: string
       produces:
@@ -174,9 +161,9 @@ paths:
         name: id
         required: true
         type: string
-      - description: Authentication token
+      - description: token
         in: header
-        name: Authorization
+        name: token
         required: true
         type: string
       produces:
@@ -192,6 +179,7 @@ paths:
       consumes:
       - application/json
       description: Register a new user
+      operationId: sign-up
       parameters:
       - description: User details
         in: body
