@@ -10,7 +10,7 @@ import (
 	"github.com/golang-jwt/jwt/v4"
 )
 
-func GenerateToken(user *model.User) (string, error) {
+func GenerateToekn(user *model.User) (string, error) {
 	token := jwt.New(jwt.SigningMethodHS256)
 	claims := token.Claims.(jwt.MapClaims)
 	claims["authorized"] = true
@@ -21,10 +21,6 @@ func GenerateToken(user *model.User) (string, error) {
 		return "", err
 	}
 	log.Println(myToken)
-	// Store the generated token in the blacklist
-	tokenBlacklist.Lock()
-	defer tokenBlacklist.Unlock()
-	tokenBlacklist.tokens[myToken] = struct{}{}
 	return myToken, nil
 }
 
