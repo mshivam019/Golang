@@ -44,50 +44,8 @@ func main() {
 	var s1 string
 	var flag int
 
-
-	// post := map[string]string{
-	// 	"rahul": "jkghvkjhf",
-	// }
-	// r := gin.Default() //application will be configured on port 8080
-	// pingFunc := func(c *gin.Context) {
-
-	// 	key := map[string]any{
-	// 		"ping": "pingu",
-	// 	}
-	// 	c.Keys = key
-	// 	res := gin.H{
-	// 		"message":      "pong",
-	// 		"contextvalue": c.Keys["ping"],
-	// 	}
-	// 	c.JSON(http.StatusUnauthorized, res)
-	// }
-	// pongFunc := func(c *gin.Context) {
-	// 	res := gin.H{
-	// 		"message":      "pong",
-	// 		"contextvalue": c.Keys["ping"],
-	// 	}
-	// 	log.Println(c.Keys["ping"])
-	// 	c.JSON(http.StatusUnauthorized, res)
-	// }
-	// dingFunc := func(c *gin.Context) {
-	// 	res := gin.H{
-	// 		"message": "pong",
-	// 	}
-	// 	c.JSON(http.StatusUnauthorized, res)
-	// }
-	// dongFunc := func(c *gin.Context) {
-	// 	res := gin.H{
-	// 		"message": "pong",
-	// 	}
-	// 	c.JSON(http.StatusUnauthorized, res)
-	// }
-	// r.GET("/ping", pingFunc) //http://localhost:8080/ping
-	// r.GET("/pong", pongFunc)
-	// r.GET("/ding", dingFunc)
-	// r.GET("/dong", dongFunc)
-
 	post := map[string]string{
-		"rahul": "Present",
+		"shivam": "Present",
 	}
 	r := gin.Default()
 	r.GET("/", func(c *gin.Context) {
